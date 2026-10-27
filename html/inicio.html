@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYOCONTROL - Secuencia Interactiva</title>
+    <link rel="stylesheet" href="../css/inicio.css">
+</head>
+<body>
+
+    <!-- Barra superior con el nombre del proyecto y los enlaces -->
+    <header class="barraNavegacion">
+        <div class="nombreProyecto">myocontrol</div>
+
+        <nav class="enlacesNavegacion">
+            <a href="#inicio">Inicio</a>
+            <a href="#tecnologia">Tecnología</a>
+            <a href="#especificaciones">Especificaciones</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Título principal que aparece detrás del modelo 3D -->
+    <div class="tituloFondo" id="inicio">
+        <h1 class="textoTitulo">MYOCONTROL</h1>
+    </div>
+
+    <!-- Aquí se muestra el modelo tridimensional de la mano robótica -->
+    <div id="modeloTridimensional"></div>
+
+    <!-- Paneles que muestran la información al avanzar por la página -->
+    <div class="contenedorPaneles">
+
+        <!-- Primer panel con el objetivo general del proyecto -->
+        <div class="panelInformativo activo" id="panelObjetivo">
+            <div class="esquinaDecorativa esquinaSuperior"></div>
+            <div class="esquinaDecorativa esquinaInferior"></div>
+
+            <span class="etiquetaInformacion">Objetivo general</span>
+
+            <p>
+                Diseñar e integrar un prototipo académico de mano robótica
+                biónica que interprete señales musculares mediante un sensor
+                EMG y un Arduino UNO R3 para controlar la apertura y el cierre
+                de una estructura articulada impresa en 3D.
+            </p>
+        </div>
+
+        <!-- Segundo panel con los alcances del proyecto -->
+        <div class="panelInformativo" id="panelAlcances">
+            <div class="esquinaDecorativa esquinaSuperior"></div>
+            <div class="esquinaDecorativa esquinaInferior"></div>
+
+            <span class="etiquetaInformacion">Alcances</span>
+
+            <p>
+                Desarrollar un prototipo de mano robótica capaz de abrirse
+                y cerrarse mediante señales musculares, utilizando componentes
+                compatibles con Arduino y una estructura impresa en 3D.
+            </p>
+        </div>
+
+        <!-- Tercer panel con las limitaciones del prototipo -->
+        <div class="panelInformativo" id="panelLimitaciones">
+            <div class="esquinaDecorativa esquinaSuperior"></div>
+            <div class="esquinaDecorativa esquinaInferior"></div>
+
+            <span class="etiquetaInformacion">Limitaciones</span>
+
+            <p>
+                El sistema estará limitado a movimientos básicos.
+                Su precisión dependerá de la calidad de las señales musculares,
+                la calibración del sensor y la capacidad de los servomotores.
+                Es un prototipo educativo, no una prótesis médica certificada.
+            </p>
+        </div>
+
+        <!-- Cuarto panel con los resultados y avances del proyecto -->
+        <div class="panelInformativo" id="panelResultados">
+            <div class="esquinaDecorativa esquinaSuperior"></div>
+            <div class="esquinaDecorativa esquinaInferior"></div>
+
+            <span class="etiquetaInformacion">Resultados</span>
+
+            <p>
+                Resultados, planos, gráficas y programas.
+                El proyecto cuenta con un diseño preliminar de la mano robótica,
+                bocetos de sus componentes y una propuesta de estructura para
+                impresión 3D. También se ha documentado la configuración del
+                entorno de desarrollo. Se espera obtener un prototipo funcional
+                que responda a las señales musculares mediante movimientos de
+                apertura y cierre. Las pruebas de funcionamiento aún requieren
+                documentación.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Espacio que permite avanzar por las diferentes partes de la página -->
+    <div class="espacioDesplazamiento"></div>
+
+    <!-- Carga las librerías necesarias para mostrar el modelo 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Carga el código que controla el modelo y los paneles -->
+    <script src="../js/inicio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+/* Quita los márgenes y espacios que los navegadores agregan por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define el tamaño de la página, la letra y el fondo blanco */
+body, html {
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Mantiene la barra de navegación en la parte superior */
+.barraNavegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    z-index: 100;
+    pointer-events: auto;
+}
+
+/* Da formato al nombre del proyecto */
+.nombreProyecto {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #111111;
+    text-transform: uppercase;
+}
+
+/* Coloca los enlaces de navegación uno al lado del otro */
+.enlacesNavegacion {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Define la apariencia de los enlaces de la barra superior */
+.enlacesNavegacion a {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #555555;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* Oscurece los enlaces cuando el cursor pasa sobre ellos */
+.enlacesNavegacion a:hover {
+    color: #000000;
+}
+
+/* Coloca el título en el centro de la pantalla */
+.tituloFondo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Ajusta el tamaño y la transparencia del título principal */
+.textoTitulo {
+    font-size: clamp(3rem, 12vw, 13rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.4);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Ocupa toda la pantalla para mostrar el modelo tridimensional */
+#modeloTridimensional {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Agrega espacio vertical para poder cambiar de panel al desplazarse */
+.espacioDesplazamiento {
+    width: 100%;
+    height: 500vh;
+    position: relative;
+    z-index: 3;
+}
+
+/* Mantiene los paneles informativos en el centro de la pantalla */
+.contenedorPaneles {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 700px;
+    max-width: 92vw;
+    pointer-events: none;
+}
+
+/* Coloca cada panel en el centro y lo oculta al inicio */
+.panelInformativo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(140px) scale(0.95);
+    width: 100%;
+    background: transparent;
+    padding: 2.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease,
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.7s;
+}
+
+/* Muestra el panel seleccionado y lo desplaza suavemente al centro */
+.panelInformativo.activo {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+}
+
+/* Oculta el panel que sale hacia arriba */
+.panelInformativo.salirArriba {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) translateY(-140px) scale(0.95);
+}
+
+/* Oculta el panel que sale hacia abajo */
+.panelInformativo.salirAbajo {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) translateY(140px) scale(0.95);
+}
+
+/* Oculta las esquinas que se usaban como decoración */
+.esquinaDecorativa {
+    display: none;
+}
+
+/* Da formato a la etiqueta que identifica cada panel */
+.etiquetaInformacion {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #111111;
+    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 6px 12px;
+    border-radius: 3px;
+    border-left: 3px solid #111111;
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Mejora la lectura del texto que aparece en los paneles */
+.panelInformativo p {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    font-weight: 500;
+    line-height: 1.7;
+    text-align: justify;
+
+    /* Agrega un halo blanco para distinguir las letras del modelo 3D */
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 255, 255, 0.8);
+}
